@@ -1,4 +1,4 @@
-### Hi there 👋
+### Hi there it's Amaresh , pursuing B.Tech in Computer Science and Engineering(AI & ML) from ITER,Siksha 'O' Anusandhan University👋
 
 <!--
 **amr7503/amr7503** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
