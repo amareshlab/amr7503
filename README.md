@@ -16,5 +16,5 @@ Here are some ideas to get you started:
 -->
 - 😄 Pronouns: He/Him
 - ⚡ Fun fact: Been into Competitive Programming since class 9
-- 🌱 I’m currently learning MERN Stack
+- 🌱 I’m currently learning MERN Stack and Machine Learning
 - - 📫 How to reach me:  amaresh7503@gmail.com
