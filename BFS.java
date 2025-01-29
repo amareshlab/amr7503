@@ -1,6 +1,6 @@
 import java.util.*;
-
-public class DFS {
+public class BFS 
+{
     public static void addUndirectedEdge(List<List<Integer>> adj, int s, int t)
     {
         adj.get(s).add(t);
@@ -47,55 +47,67 @@ public class DFS {
 
         System.out.println("Enter source vertex ");
         int source=sc.nextInt();
-        System.out.println("Depth first search traversal from source "+source+" is ::: ");
+        System.out.println("Breadth first search traversal from source "+source+" is ::: ");
 
-        dfs(adj,visited,source);
-
-        System.out.println();
-
-    }
-    public static void dfs(List<List<Integer>> adj,boolean[] visited,int source)
-    {
-        visited[source]=true;
-        System.out.print(source+" ");
-
-        //check for it's neighbours
-
-        for(int i:adj.get(source))
-        {
-            if(visited[i]==false)
-            {
-                dfs(adj,visited,i);   //recursive so goes in depth
+        for (i = 0; i < adj.size(); i++)  // To make it work for disconnected components too visited is maintained
+            if (!visited[i]) {
+                bfs(adj, visited,i);
             }
-        }
-    }
-}
 
+    
+    }
+
+    public static void bfs(List<List<Integer>> adj,boolean[] visited,int source)
+    {
+        Queue<Integer> q=new LinkedList<>();
+
+        visited[source]=true;
+        q.add(source);
+
+        while(!q.isEmpty())
+        {
+            int node=q.poll(); //poll(): Removes and returns the element at the front of the queue
+            System.out.print(node+" ");
+            for(int x:adj.get(node))
+            {
+                if(!visited[x])
+                {
+                q.add(x);
+                visited[x]=true;
+                }
+            }
+               
+        }
+        System.out.println();
+    }
+       
+    
+}
 
 /*
     --------------
     |   OUTPUT   | 
     --------------
-
+   
 Enter number of vertices
 5
 Enter the number of edges(e)= ?5
 Enter the edges 
-1 2
-1 0
-2 0
-2 3
+0 1
+0 2
+1 3
+1 4
 2 4
 Vertex 0 is connected to: 1 , 2 , 
-Vertex 1 is connected to: 2 , 0 , 
-Vertex 2 is connected to: 1 , 0 , 3 , 4 , 
-Vertex 3 is connected to: 2 , 
-Vertex 4 is connected to: 2 , 
+Vertex 1 is connected to: 0 , 3 , 4 , 
+Vertex 2 is connected to: 0 , 4 , 
+Vertex 3 is connected to: 1 , 
+Vertex 4 is connected to: 1 , 2 , 
 Enter source vertex 
-1
-Depth first search traversal from source 1 is ::: 
-1 2 0 3 4 
+0
+Breadth first search traversal from source 0 is ::: 
+0 1 2 3 4 
 
 
-REFERENCE :- https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/
+REFERENCE :- https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
  */
